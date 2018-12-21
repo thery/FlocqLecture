@@ -14,7 +14,7 @@
 *)
 
 Require Import Psatz.
-From Flocq Require Import Fcore.
+From Flocq Require Import Core.
 
 Section Lecture2.
 
@@ -229,12 +229,12 @@ Eval lazy beta delta [NG_existence_prop] in NG_existence_prop F T.
 
 Search NG_existence_prop.
 
-Check Rnd_NG_pt_unicity_prop F T.
-Eval lazy beta delta [Rnd_NG_pt_unicity_prop] in Rnd_NG_pt_unicity_prop F T.
+Check Rnd_NG_pt_unique_prop F T.
+Eval lazy beta delta [Rnd_NG_pt_unique_prop] in Rnd_NG_pt_unique_prop F T.
 
 Check Rnd_NG_pt_monotone F T.
 
-Search Rnd_NG_pt_unicity_prop.
+Search Rnd_NG_pt_unique_prop.
 
 Definition Taway x f := Rabs f >= Rabs x.
 
