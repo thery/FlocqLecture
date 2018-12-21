@@ -117,7 +117,14 @@ Qed.
 (* About numbers                                                              *)
 
 Check 11.
-Check (1 + ((1 + 1) * 5)).
+Check (IZR 11).
+
+Compute IZR 11.
+
+Check 0.
+Check (IZR 0).
+Compute IZR 0.
+
 
 (* Turn a natural number into a real number                                   *)
 Print INR.
@@ -137,10 +144,6 @@ Check plus_IZR.
 
 (*                                                                              
    Easy exercise:   Prove that IZR(-42) = -42.                                  
-*)
-
-(*                                                                              
-   Exercise: write INR1 : N -> R in such a way that "Compute INR1" 11 return 11.
 *)
 
 (******************************************************************************)
