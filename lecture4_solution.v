@@ -40,13 +40,13 @@ Qed.
 (*                                                                              
 Hints:                                                                          
                                                                                 
-Check ln_beta_le_abs.                                                           
+Check mag_le_abs.                                                           
 Check bpow_le.                                                                  
                                                                                 
 *)
 
 (*                                                                              
-  Reprove ulp_DN_UP                                                             
+  Reprove round_UP_DN_ulp                                                             
 *)
 
 Fact ext2 x : 
@@ -70,7 +70,7 @@ Hints:
                                                                                 
 Check scaled_mantissa_mult_bpow.                                                
 Check Zceil_floor_neq.                                                          
-Check Ztrunc_Z2R.                                                               
+Check Ztrunc_IZR.                                                               
                                                                                 
 *)
 
@@ -101,7 +101,7 @@ Hints :
                                                                                 
 Check round_DN_UP_lt.                                                           
 Check round_DN_or_UP.                                                           
-Check ulp_DN_UP.                                                                
+Check round_UP_DN_ulp.                                                                
                                                                                 
 *)
 
@@ -109,7 +109,6 @@ Check ulp_DN_UP.
   Reprove error_le_half_ulp                                                     
 *)
 
-Search ulp.
 Fact ext4 x :
     Rabs (round r phi (Znearest choice) x - x) <=
          / 2 * ulp r phi x.
@@ -143,7 +142,7 @@ Check round_N_pt.
 Check generic_format_round.                                                     
 Check round_DN_UP_lt.                                                           
 Check round_DN_or_UP.                                                           
-Check ulp_DN_UP.                                                                
+Check round_UP_DN_ulp.                                                                
                                                                                 
 *)
 

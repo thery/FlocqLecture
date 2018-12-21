@@ -54,7 +54,7 @@ Check round_UP_DN_ulp.
 Check round_UP_DN_ulp r phi vx.
 
 (*                                                                              
-  Reprove round_DN_UP_ulp                                                       
+  Reprove round_UP_DN_ulp                                                       
                                                                                 
 Fact ext2 x :                                                                   
   ~ generic_format r phi x ->                                                   
@@ -64,7 +64,7 @@ Hints:
                                                                                 
 Check scaled_mantissa_mult_bpow.                                                
 Check Zceil_floor_neq.                                                          
-Check Ztrunc_Z2R.                                                               
+Check Ztrunc_IZR.                                                               
                                                                                 
 *)
 
