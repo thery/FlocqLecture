@@ -402,7 +402,7 @@ Check valid_rnd_N choice.
 
 
 (*                                                                              
-  Prove that the error resulting of an additiion in rounded to the nearest      
+  Prove that the error resulting of an addition in rounded to the nearest      
   can always be represented exactly                                             
                                                                                 
   We first prove a first general result on how a rounded value can be           
