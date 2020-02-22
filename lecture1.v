@@ -308,13 +308,13 @@ Check cos_plus. (* some trigonometry                   *)
 
 (* Searching in the library                                                   *)
 
-SearchAbout sqrt. (* Everything on sqrt *)
+Search sqrt. (* Everything on sqrt *)
 
-SearchAbout sqrt (_ * _). (* Everything on sqrt and multiplication *)
+Search sqrt (_ * _). (* Everything on sqrt and multiplication *)
 
-SearchAbout (0 < _) (_ * _). (* Everything on sqrt and multiplication *)
+Search (0 < _) (_ * _). (* Everything on sqrt and multiplication *)
 
-SearchAbout (0 < _) (_ * _) outside Fourier_util. (* without fourier *)
+Search _ (0 < _) (_ * _) outside Fourier_util. (* without fourier *)
 
 SearchPattern (0 < _ * _). (* filtering the conclusion *)
 
@@ -327,7 +327,7 @@ SearchPattern (0 < _ * _). (* filtering the conclusion *)
  - split_Rabs to remove the absolute values                                     
  - set (x := ....) to name a subterm                                            
  - assert (H : ....) to introduce an intermediate result                        
- - SearchAbout, SearchPattern to search in the library                          
+ - Search, SearchPattern to search in the library                          
 *)
 
 (*                                                                              

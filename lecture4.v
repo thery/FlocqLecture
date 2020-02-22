@@ -216,7 +216,7 @@ Eval lazy beta delta [Bplus] in Bplus vp ve.
 Print b32_plus.
 Print  binop_nan_pl32.
 
-SearchAbout Bplus.
+Search Bplus.
 
 (* Involutive *)
 Check Bplus_correct vp ve.

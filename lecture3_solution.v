@@ -175,8 +175,8 @@ Qed.
 (*                                                                              
 Hint : we can rely on the following properties of Ztrunc and mag            
                                                                                 
-SearchAbout Ztrunc inside Fcore_Raux.                                           
-SearchAbout mag inside Fcore_Raux.                                          
+Search Ztrunc inside Fcore_Raux.                                           
+Search mag inside Fcore_Raux.                                          
                                                                                 
 *)
 
@@ -207,7 +207,7 @@ set (fy := {| Fnum := my; Fexp := _ |}) in *.
 rewrite Hx, Hy, <- F2R_minus.
 assert (Fm := F2R_minus fx fy).
 rewrite <-Hx, <-Hy in Fm.
-assert (Hxy : Fexp (Fminus fx fy) = Zmin (phi ex) (phi ey)).
+assert (Hxy : Fexp (Fminus fx fy) = Z.min (phi ex) (phi ey)).
   apply Fexp_Fplus.
 destruct (Fminus fx fy) as [mxy exy].
 apply generic_format_F2R; simpl.
