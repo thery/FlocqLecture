@@ -106,7 +106,6 @@ Check binary32.
 (* Addition *)
 Check b32_plus.
 
-From Flocq Require Import Bits.
 (* Rounding mode *)
 Print mode.
 
@@ -131,7 +130,7 @@ Variable m : positive.
 Variable e : Z.
 Variable H : bounded vp ve m e = true.
 
-Let f := Binary.B754_finite vp ve s m e H.
+Let f := B754_finite vp ve s m e H.
 Check f.
 Check is_finite vp ve.
 Compute is_finite vp ve f.
