@@ -7,8 +7,8 @@
 
 (* Solutions of lecture 4 *)
 
-Require Import Psatz.
-From Flocq Require Import FTZ Core Operations.
+Require Import Psatz ZArith Reals SpecFloat.
+From Flocq Require Import FTZ Core Operations BinarySingleNaN Binary Bits.
 
 Open Scope R_scope.
 

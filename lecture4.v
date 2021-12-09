@@ -9,8 +9,8 @@
   we present the notion of ulp and the concrete IEEE 754 format                 
 *)
 
-Require Import Psatz.
-From Flocq Require Import FTZ Core Operations Binary Bits.
+Require Import Psatz ZArith Reals SpecFloat.
+From Flocq Require Import FTZ Core Operations BinarySingleNaN Binary Bits.
 
 Open Scope R_scope.
 
@@ -105,6 +105,8 @@ Check round_UP_DN_ulp.
 Check binary32.
 (* Addition *)
 Check b32_plus.
+
+From Flocq Require Import Bits.
 (* Rounding mode *)
 Print mode.
 
@@ -129,8 +131,7 @@ Variable m : positive.
 Variable e : Z.
 Variable H : bounded vp ve m e = true.
 
-
-Let f := B754_finite vp ve s m e H.
+Let f := Binary.B754_finite vp ve s m e H.
 Check f.
 Check is_finite vp ve.
 Compute is_finite vp ve f.

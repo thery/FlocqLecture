@@ -7,7 +7,7 @@
 
 (* Solutions of lecture 2 *)
 
-Require Import Psatz.
+Require Import Psatz Reals.
 From Flocq Require Import Core.
 
 Section Solution2.
