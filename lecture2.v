@@ -5,12 +5,12 @@
 (*                                                                            *)
 (******************************************************************************)
 
-(*                                                                              
-                                                                                
-  How to define floating point numbers ?                                        
-                                                                                
-  We are going to use the flocq library at http://flocq.gforge.inria.fr/        
-                                                                                
+(*
+
+  How to define floating point numbers ?
+
+  We are going to use the Flocq library at http://flocq.gforge.inria.fr/
+
 *)
 
 Require Import Psatz Reals.
@@ -31,7 +31,7 @@ Variables vx vy : R.                        (* Some values for our examples   *)
 
 Check F vx.                                 (* vx is a floating-point number  *)
 
-Variable P : R -> R -> Prop.                (* The relation                     
+Variable P : R -> R -> Prop.                (* The relation
                                                 "to be a rounded value"       *)
 
 Check P vx vy.                              (* vy is a rounded value of vx    *)
@@ -52,7 +52,7 @@ Qed.
 
 Definition rnd := let (f, _) := round_fun_of_pred P round_pred_P in f.
 
-Check rnd.                                  (* the function associated with the 
+Check rnd.                                  (* the function associated with the
                                                relation                       *)
 
 Lemma rndP : forall x, P x (rnd x).         (* its associated relation        *)
@@ -89,11 +89,11 @@ Eval lazy beta delta [Rnd_ZR] in Rnd_ZR F rnd.
 (******************************************************************************)
 
 Fact ex1 : forall x, F x -> Rnd_DN_pt F x x.    (* Rnd_Dn_pt idempotent on F  *)
-Proof. 
-intros x Fx; repeat split.
-- assumption.
-- lra.
-- intros g Fg gLx; assumption.
+Proof.
+  intros x Fx; repeat split.
+  - assumption.
+  - lra.
+  - intros g Fg gLx; assumption.
 Qed.
 
 Fact ex2 : round_pred_monotone (Rnd_DN_pt F).   (*  Rnd_Dn_pt monotone        *)
@@ -104,35 +104,35 @@ destruct Rxg as [Fg [gLy gdown]].
 apply gdown; try lra; assumption.
 Qed.
 
-(*                                                                              
-  Prove that UP is also idempotent and monotone                                 
-                                                                                
-Fact ex3 : forall x, F x -> Rnd_UP_pt F x x.                                    
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Fact ex4 : round_pred_monotone (Rnd_UP_pt F).                                   
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-  Prove that ZR is idempotent but only monotone if 0 is a float                 
-                                                                                
-Fact ex5 :  forall x, F x -> Rnd_ZR_pt F x x.                                   
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Fact ex6 : F 0 -> round_pred_monotone (Rnd_ZR_pt F).                            
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Hint:                                                                           
- In order to perform a case analysis on the fact that x is smaller to y or not  
- one can use the tactic "destruct (Rle_lt_dec x y) as [xLy | yLx]"              
-                                                                                
+(*
+  Prove that UP is also idempotent and monotone
+
+Fact ex3 : forall x, F x -> Rnd_UP_pt F x x.
+Proof.
+...
+Qed.
+
+Fact ex4 : round_pred_monotone (Rnd_UP_pt F).
+Proof.
+...
+Qed.
+
+  Prove that ZR is idempotent but only monotone if 0 is a float
+
+Fact ex5 :  forall x, F x -> Rnd_ZR_pt F x x.
+Proof.
+...
+Qed.
+
+Fact ex6 : F 0 -> round_pred_monotone (Rnd_ZR_pt F).
+Proof.
+...
+Qed.
+
+Hint:
+ In order to perform a case analysis on the fact that x is smaller than y or not
+ one can use the tactic "destruct (Rle_lt_dec x y) as [xLy | yLx]"
+
 *)
 
 (******************************************************************************)
@@ -143,8 +143,7 @@ Hint:
 Fact ex7 : (forall x, F x -> F (-x)) ->          (* the format is symmetric   *)
    round_pred_total (Rnd_DN_pt F) -> round_pred_total (Rnd_UP_pt F).
 Proof.
-intros sym tDN.
-intros x.
+intros sym tDN x.
 destruct (tDN (-x)) as [y [Fy [yLx yM]]].
 exists (-y); repeat split.
 - apply sym; auto.
@@ -158,24 +157,24 @@ Print satisfies_any.
 
 Hypothesis SAF : satisfies_any F.
 
-(*                                                                              
-   Prove that DN, UP, ZR are rounding predicates                                
-                                                                                
-Fact ex8  : round_pred (Rnd_DN_pt F).                                           
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Fact ex9  : round_pred (Rnd_UP_pt F).                                           
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Fact ex10 : round_pred (Rnd_ZR_pt F).                                           
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
+(*
+   Prove that DN, UP, ZR are rounding predicates
+
+Fact ex8 : round_pred (Rnd_DN_pt F).
+Proof.
+...
+Qed.
+
+Fact ex9 : round_pred (Rnd_UP_pt F).
+Proof.
+...
+Qed.
+
+Fact ex10 : round_pred (Rnd_ZR_pt F).
+Proof.
+...
+Qed.
+
 *)
 
 
@@ -189,42 +188,42 @@ Eval lazy beta delta [Rnd_N_pt] in Rnd_N_pt F vx vy.
 Check Rnd_N.
 Eval lazy beta delta [Rnd_N] in Rnd_N F rnd.
 
-(*                                                                              
-                                                                                
-  Prove that N is idempotent, that is either UP or DOWN and that it is strictly 
-  monotone                                                                      
-                                                                                
-Fact ex11 : forall x, F x -> Rnd_N_pt F x x.                                    
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Fact ex12 : forall x f, Rnd_N_pt F x f -> Rnd_DN_pt F x f \/ Rnd_UP_pt F x f.   
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Fact ex13 : forall x y f g,                                                     
-  Rnd_N_pt F x f -> Rnd_N_pt F y g -> x < y -> f <= g.                          
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Hints : some theorems about absolute values                                     
-Check Rabs_R0.                                                                  
-Check Rabs_pos.                                                                 
-Check Rabs_right.                                                               
-Check Rabs_left.                                                                
-                                                                                
+(*
+
+  Prove that N is idempotent, that is either UP or DOWN and that it is strictly
+  monotone
+
+Fact ex11 : forall x, F x -> Rnd_N_pt F x x.
+Proof.
+...
+Qed.
+
+Fact ex12 : forall x f, Rnd_N_pt F x f -> Rnd_DN_pt F x f \/ Rnd_UP_pt F x f.
+Proof.
+...
+Qed.
+
+Fact ex13 : forall x y f g,
+  Rnd_N_pt F x f -> Rnd_N_pt F y g -> x < y -> f <= g.
+Proof.
+...
+Qed.
+
+                                Hints : some theorems about absolute values
+Check Rabs_R0.
+Check Rabs_pos.
+Check Rabs_right.
+Check Rabs_left.
+
 *)
-  
+
 
 Variable T : R -> R -> Prop.                            (* Tie-break rule     *)
 
 Check Rnd_NG_pt F T vx vy.
 Eval lazy beta delta [Rnd_NG_pt] in Rnd_NG_pt F T vx vy.
 
-Check NG_existence_prop F T.            (* condition to ensure existance      *)
+Check NG_existence_prop F T.            (* condition to ensure existence      *)
 Eval lazy beta delta [NG_existence_prop] in NG_existence_prop F T.
 
 Search NG_existence_prop.
@@ -239,29 +238,29 @@ Search Rnd_NG_pt_unique_prop.
 Definition Taway x f := Rabs f >= Rabs x.
 
 
-(*                                                                              
-  Prove that Taway verifies the two properties to build a rounding mode         
-                                                                                
+(*
+  Prove that Taway verifies the two properties to build a rounding mode
 
-Fact ex14 : NG_existence_prop F Taway.                                          
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
-Fact ex15 : F 0 -> Rnd_NG_pt_unicity_prop F Taway.                              
-Proof.                                                                          
-...                                                                             
-Qed.                                                                            
-                                                                                
+
+Fact ex14 : NG_existence_prop F Taway.
+Proof.
+...
+Qed.
+
+Fact ex15 : F 0 -> Rnd_NG_pt_unique_prop F Taway.
+Proof.
+...
+Qed.
+
 *)
 
 
 (*
- Resume                                                                         
-                                                                                
- - "generic" version of format and roundind modes                               
- - 4 rounding functions : up, down, to zero, to the nearest.                    
-                                                                                
+ Resume
+
+ - "generic" version of format and rounding modes
+ - 4 rounding functions : up, down, to zero, to the nearest.
+
 *)
 
 End Lecture2.
