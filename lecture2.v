@@ -90,10 +90,10 @@ Eval lazy beta delta [Rnd_ZR] in Rnd_ZR F rnd.
 
 Fact ex1 : forall x, F x -> Rnd_DN_pt F x x.    (* Rnd_Dn_pt idempotent on F  *)
 Proof.
-  intros x Fx; repeat split.
-  - assumption.
-  - lra.
-  - intros g Fg gLx; assumption.
+intros x Fx; repeat split.
+- assumption.
+- lra.
+- intros g Fg gLx; assumption.
 Qed.
 
 Fact ex2 : round_pred_monotone (Rnd_DN_pt F).   (*  Rnd_Dn_pt monotone        *)
@@ -209,7 +209,7 @@ Proof.
 ...
 Qed.
 
-                                Hints : some theorems about absolute values
+Hints : some theorems about absolute values
 Check Rabs_R0.
 Check Rabs_pos.
 Check Rabs_right.
