@@ -1,6 +1,6 @@
 ---
 fullname: FlocqLecture
-shortname: flocqlecture
+shortname: FlocqlLecture
 organization: thery
 community: false
 dune: false
@@ -51,7 +51,7 @@ dependencies:
 tested_coq_opam_versions:
 - version: '8.16'
 
-namespace: 
+namespace: FlocqLecture
 
 keywords:
 - name: Flocq Lecture
