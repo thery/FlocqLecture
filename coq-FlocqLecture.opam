@@ -10,11 +10,11 @@ dev-repo: "git+https://github.com/thery/FlocqLecture.git"
 bug-reports: "https://github.com/thery/FlocqLecture/issues"
 license: "MIT"
 
-synopsis: "Flocq lecture"
+synopsis: "Lectures about flocq"
 description: """
 This is an introductory course **Floating-Point Numbers and Formal Proof**
 given at [ENS Lyon](http://www.ens-lyon.fr/LIP/) in 2016-2017.
-It is based on the [Flocq Library](http://flocq.gforge.inria.fr/).
+It is based on the [Flocq Library](http://flocq.gforge.inria.fr/). 
 
 ----
 It is composed of four lectures:
@@ -30,12 +30,13 @@ Laurent Théry (Laurent.Thery@inria.fr)"""
 build: [make "-j%{jobs}%"]
 install: [make "install"]
 depends: [
-  "coq" {(>= "8.15")}
-  "coq-flocq" {(>= "4.0.0")}
+  "coq" {(>= "8.16")}
+  "coq-flocq" {(>= "4.1.0")}
 ]
 
 tags: [
-  "keyword:flocq lecture"
+  "keyword:Flocq Lecture"
+  "keyword:Flocq tutorial"
   "logpath:FlocqLecture"
 ]
 authors: [

@@ -6,8 +6,8 @@ Follow the instructions on https://github.com/coq-community/templates to regener
 
 [![Docker CI][docker-action-shield]][docker-action-link]
 
-[docker-action-shield]: https://github.com/thery/FlocqlLecture/workflows/Docker%20CI/badge.svg?branch=master
-[docker-action-link]: https://github.com/thery/FlocqlLecture/actions?query=workflow:"Docker%20CI"
+[docker-action-shield]: https://github.com/thery/FlocqLecture/workflows/Docker%20CI/badge.svg?branch=master
+[docker-action-link]: https://github.com/thery/FlocqLecture/actions?query=workflow:"Docker%20CI"
 
 
 
@@ -43,8 +43,8 @@ Laurent Théry (Laurent.Thery@inria.fr)
 To build and install manually, do:
 
 ``` shell
-git clone https://github.com/thery/FlocqlLecture.git
-cd FlocqlLecture
+git clone https://github.com/thery/FlocqLecture.git
+cd FlocqLecture
 make   # or make -j <number-of-cores-on-your-machine> 
 make install
 ```
