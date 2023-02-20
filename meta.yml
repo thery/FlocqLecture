@@ -1,17 +1,17 @@
 ---
 fullname: FlocqLecture
-shortname: FlocqLecture
+shortname: flocqlecture
 organization: thery
 community: false
 dune: false
 action: true
 
-synopsis: Flocq lecture
+synopsis: Lectures about flocq
 
 description: |-
   This is an introductory course **Floating-Point Numbers and Formal Proof**
   given at [ENS Lyon](http://www.ens-lyon.fr/LIP/) in 2016-2017.
-  It is based on the [Flocq Library](http://flocq.gforge.inria.fr/).
+  It is based on the [Flocq Library](http://flocq.gforge.inria.fr/). 
   
   ----
   It is composed of four lectures:
@@ -23,6 +23,7 @@ description: |-
 
   ----
   Laurent Théry (Laurent.Thery@inria.fr)
+
 authors:
 - name: Laurent Théry
 
@@ -37,23 +38,24 @@ license:
   identifier: MIT
 
 supported_coq_versions:
-  text: '8.15 or later'
-  opam: '{(>= "8.15")}'
+  text: '8.16 or later'
+  opam: '{(>= "8.16")}'
 
 dependencies:
 - opam:
     name: coq-flocq
-    version: '{(>= "4.0.0")}'
+    version: '{(>= "4.1.0")}'
   description: |-
-    [Flocq 4.0 or later](https://gitlab.inria.fr/flocq/flocq.git)
+    [Flocq 4.1 or later](https://gitlab.inria.fr/flocq/flocq.git)
 
 tested_coq_opam_versions:
-- version: '1.14.0-coq-8.15'
-  repo: 'mathcomp/mathcomp'
+- version: '8.16'
 
-namespace: FlocqLecture
+namespace: 
 
 keywords:
-- name: flocq lecture
+- name: Flocq Lecture
+- name: Flocq tutorial
+
 
 ---
