@@ -30,8 +30,8 @@ Laurent Théry (Laurent.Thery@inria.fr)"""
 build: [make "-j%{jobs}%"]
 install: [make "install"]
 depends: [
-  "coq" {(>= "8.16")}
-  "coq-flocq" {(>= "4.1.0")}
+  "coq" {(>= "8.17")}
+  "coq-flocq" {(>= "4.1.1")}
 ]
 
 tags: [

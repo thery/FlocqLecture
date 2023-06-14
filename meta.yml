@@ -38,18 +38,18 @@ license:
   identifier: MIT
 
 supported_coq_versions:
-  text: '8.16 or later'
-  opam: '{(>= "8.16")}'
+  text: '8.17 or later'
+  opam: '{(>= "8.17")}'
 
 dependencies:
 - opam:
     name: coq-flocq
-    version: '{(>= "4.1.0")}'
+    version: '{(>= "4.1.1")}'
   description: |-
     [Flocq 4.1 or later](https://gitlab.inria.fr/flocq/flocq.git)
 
 tested_coq_opam_versions:
-- version: '8.16'
+- version: '8.17'
 
 namespace: FlocqLecture
 
