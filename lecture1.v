@@ -30,7 +30,8 @@
   In Coq, real numbers are axiomatised                                          
 *)
 
-Require Import Reals.
+From Stdlib Require Import Reals.
+From Stdlib Require Import Psatz.
 
 Section Lecture1.
 
@@ -205,8 +206,6 @@ Check Rmult_lt_compat_l.                 (* left compatibility       *)
 
 
 (* The tactic "lra" let us prove linear inequalities                          *)
-
-Require Import Psatz.
 
 Fact ex7 x :  0 < x -> 2 * x - 1 < 6 * x + 7.
 Proof. lra. Qed.

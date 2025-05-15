@@ -7,7 +7,7 @@
 
 (* Solutions of lecture 3 *)
 
-Require Import Psatz ZArith Reals.
+From Stdlib Require Import Psatz ZArith Reals.
 From Flocq Require Import FTZ Core Operations.
 
 Open Scope R_scope.

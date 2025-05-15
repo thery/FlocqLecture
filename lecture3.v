@@ -11,7 +11,7 @@
   our floating point numbers. We start from a very generic representation       
 *)
 
-Require Import Psatz ZArith Reals.
+From Stdlib Require Import Psatz ZArith Reals.
 From Flocq Require Import FTZ Core Operations.
 
 Open Scope R_scope.

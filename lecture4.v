@@ -9,7 +9,7 @@
   we present the notion of ulp and the concrete IEEE 754 format                 
 *)
 
-Require Import Psatz ZArith Reals SpecFloat.
+From Stdlib Require Import Psatz ZArith Reals SpecFloat.
 From Flocq Require Import FTZ Core Operations BinarySingleNaN Binary Bits.
 
 Open Scope R_scope.

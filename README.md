@@ -6,8 +6,8 @@ Follow the instructions on https://github.com/coq-community/templates to regener
 
 [![Docker CI][docker-action-shield]][docker-action-link]
 
-[docker-action-shield]: https://github.com/thery/FlocqLecture/workflows/Docker%20CI/badge.svg?branch=master
-[docker-action-link]: https://github.com/thery/FlocqLecture/actions?query=workflow:"Docker%20CI"
+[docker-action-shield]: https://github.com/thery/FlocqLecture/actions/workflows/docker-action.yml/badge.svg?branch=master
+[docker-action-link]: https://github.com/thery/FlocqLecture/actions/workflows/docker-action.yml
 
 
 
@@ -32,9 +32,9 @@ Laurent Théry (Laurent.Thery@inria.fr)
 - Author(s):
   - Laurent Théry
 - License: [MIT License](LICENSE)
-- Compatible Coq versions: 8.17 or later
+- Compatible Coq versions: 9.0 or later
 - Additional dependencies:
-  - [Flocq 4.1 or later](https://gitlab.inria.fr/flocq/flocq.git)
+  - [Flocq 4.2.1 or later](https://gitlab.inria.fr/flocq/flocq.git)
 - Coq namespace: `FlocqLecture`
 - Related publication(s): none
 

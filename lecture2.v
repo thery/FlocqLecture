@@ -13,7 +13,7 @@
                                                                                 
 *)
 
-Require Import Psatz Reals.
+From Stdlib Require Import Psatz Reals.
 From Flocq Require Import Core.
 
 Section Lecture2.

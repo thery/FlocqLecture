@@ -8,7 +8,7 @@
 
 (* Solutions of lecture1 *)
 
-Require Import Reals Psatz.
+From Stdlib Require Import Reals Psatz.
 
 Section Solution1.
 
