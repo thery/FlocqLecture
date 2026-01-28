@@ -32,10 +32,9 @@ Laurent Théry (Laurent.Thery@inria.fr)
 - Author(s):
   - Laurent Théry
 - License: [MIT License](LICENSE)
-- Compatible Coq versions: 9.0 or later
 - Additional dependencies:
   - [Flocq 4.2.1 or later](https://gitlab.inria.fr/flocq/flocq.git)
-- Coq namespace: `FlocqLecture`
+- Rocq/Coq namespace: `FlocqLecture`
 - Related publication(s): none
 
 ## Building and installation instructions

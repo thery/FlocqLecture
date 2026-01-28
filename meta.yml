@@ -37,9 +37,9 @@ license:
   fullname: MIT License
   identifier: MIT
 
-supported_coq_versions:
-  text: '9.0 or later'
-  opam: '{(>= "9.0")}'
+supported_rocq_versions:
+  text: '9.1 or later'
+  opam: '{(>= "9.1")}'
 
 dependencies:
 - opam:
@@ -49,7 +49,7 @@ dependencies:
     [Flocq 4.2.1 or later](https://gitlab.inria.fr/flocq/flocq.git)
 
 tested_rocq_opam_versions:
-- version: '9.0'
+- version: '9.1'
 
 namespace: FlocqLecture
 
