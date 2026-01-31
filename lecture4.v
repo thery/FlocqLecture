@@ -5,8 +5,8 @@
 (*                                                                            *)
 (******************************************************************************)
 
-(*                                                                              
-  we present the notion of ulp and the concrete IEEE 754 format                 
+(*
+  we present the notion of ulp and the concrete IEEE 754 format
 *)
 
 From Stdlib Require Import Psatz ZArith Reals SpecFloat.
@@ -20,7 +20,7 @@ Section Lecture4.
 Variable vx vy : R.
 (* Basis *)
 Variable r : radix.
-(* Translating funtion for the exponent *)
+(* Translating function for the exponent *)
 Variable phi : Z -> Z.
 Hypothesis vPhi : Valid_exp phi.
 (* Rounding function *)
@@ -36,67 +36,89 @@ Eval lazy beta delta [ulp cexp] in ulp r phi vx.
 
 Check ulp_neq_0.
 
-(*                                                                              
-  Prove that if phi is monotone so is ulp                                       
-                                                                                
-Fact ex1 x y :                                                                  
-  x <> 0 -> Monotone_exp phi -> Rabs x <= Rabs y -> ulp r phi x <= ulp r phi y. 
-                                                                                
-Hints:                                                                          
-                                                                                
-Check mag_le_abs.                                                           
-Check bpow_le.                                                                  
-                                                                                
+(*
+  Prove that if phi is monotone so is ulp
+
+Fact ex1 x y :
+  x <> 0 -> Monotone_exp phi -> Rabs x <= Rabs y -> ulp r phi x <= ulp r phi y.
+Proof.
+...
+Qed.
+
+Hints:
+
+Check mag_le_abs.
+Check bpow_le.
+
 *)
 
 Check round_UP_DN_ulp.
 
 Check round_UP_DN_ulp r phi vx.
 
-(*                                                                              
-  Reprove round_UP_DN_ulp                                                       
-                                                                                
-Fact ext2 x :                                                                   
-  ~ generic_format r phi x ->                                                   
-  round r phi Zceil x = round r phi Zfloor x + ulp r phi x.                     
-                                                                                
-Hints:                                                                          
-                                                                                
-Check scaled_mantissa_mult_bpow.                                                
-Check Zceil_floor_neq.                                                          
-Check Ztrunc_IZR.                                                               
-                                                                                
+(*
+  Reprove round_UP_DN_ulp
+
+Fact ext2 x :
+  ~ generic_format r phi x ->
+  round r phi Zceil x = round r phi Zfloor x + ulp r phi x.
+Proof.
+...
+Qed.
+
+Hints:
+
+Check scaled_mantissa_mult_bpow.
+Check Zceil_floor_neq.
+Check Ztrunc_IZR.
+
 *)
 
 Check error_lt_ulp.
 
-(*                                                                              
-  Reprove error_lt_ulp :                                                        
-  Fact ext3 x : x <> 0 -> Rabs (round r phi rnd x - x) < ulp r phi x.           
-                                                                                
-Hints :                                                                         
-                                                                                
-Check round_DN_UP_lt.                                                           
-Check round_DN_or_UP.                                                           
-Check round_UP_DN_ulp.                                                          
-                                                                                
+(* Helper lemma *)
+
+Lemma format_dec x : generic_format r phi x \/ ~ generic_format r phi x.
+Proof.
+unfold generic_format, F2R; simpl.
+set (y := _ * _); case (Req_dec x y); auto.
+Qed.
+
+(*
+  Reprove error_lt_ulp :
+
+  Fact ext3 x : x <> 0 -> Rabs (round r phi rnd x - x) < ulp r phi x.
+  Proof.
+  ...
+  Qed.
+
+Hints :
+
+Check round_DN_UP_lt.
+Check round_DN_or_UP.
+Check round_UP_DN_ulp.
+
 *)
 
 Check error_le_half_ulp.
 
-(*                                                                              
-  Reprove error_le_half_ulp :                                                   
-  Fact ext4 x :                                                                 
-    Rabs (round r phi (Znearest choice) x - x) <= / 2 * ulp r phi x.            
-                                                                                
-Hints:                                                                          
-                                                                                
-Check round_N_pt.                                                               
-Check generic_format_round.                                                     
-Check round_DN_UP_lt.                                                           
-Check round_DN_or_UP.                                                           
-Check round_UP_DN_ulp.                                                          
-                                                                                
+(*
+  Reprove error_le_half_ulp :
+
+  Fact ext4 x :
+    Rabs (round r phi (Znearest choice) x - x) <= / 2 * ulp r phi x.
+  Proof.
+  ...
+  Qed.
+
+Hints:
+
+Check round_N_pt.
+Check generic_format_round.
+Check round_DN_UP_lt.
+Check round_DN_or_UP.
+Check round_UP_DN_ulp.
+
 *)
 
 (* The IEEE 754 norm                                                          *)
@@ -120,7 +142,7 @@ Print binary64.
 Check binary_float.
 
 
-(* Generic float                              *)
+(* Generic float                                     *)
 (* Variables for the precision and the exponent range *)
 Variable vp ve : Z.
 
@@ -136,11 +158,11 @@ Check is_finite vp ve.
 Compute is_finite vp ve f.
 
 (* Checking bound *)
-Eval lazy beta zeta iota delta [bounded] in 
+Eval lazy beta zeta iota delta [bounded] in
   (bounded vp ve m e).
 
 (* Test on the mantissa *)
-Check  canonical_canonical_mantissa vp ve s m e.
+Check canonical_canonical_mantissa vp ve s m e.
 Print canonical.
 Print cexp.
 
